@@ -1,0 +1,22 @@
+{
+  "name": "promises-lecture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D-Whipp/promises-lecture.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/D-Whipp/promises-lecture/issues"
+  },
+  "homepage": "https://github.com/D-Whipp/promises-lecture#readme",
+  "dependencies": {
+    "superagent": "^7.1.3"
+  }
+}
