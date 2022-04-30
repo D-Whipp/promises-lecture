@@ -27,6 +27,7 @@ const getDogPic = async () => {
     const res = await superagent.get(
       `https://dog.ceo/api/breed/${data}/images/random`
     );
+
     console.log(res.body.message);
 
     await writeFilePromise('dog-img.txt', res.body.message);
@@ -35,8 +36,10 @@ const getDogPic = async () => {
     console.log(err);
   }
 };
+console.log('1: Will get dog pics');
 
 getDogPic();
+console.log('2: Dont getting dog pics');
 
 // readFilePromise(`${__dirname}/dog.txt`)
 //   .then((data) => {
