@@ -24,14 +24,26 @@ const getDogPic = async () => {
     const data = await readFilePromise(`${__dirname}/dog.txt`);
     console.log(`Breed: ${data}`);
 
-    const res = await superagent.get(
+    const result1Promise = superagent.get(
       `https://dog.ceo/api/breed/${data}/images/random`
     );
+    const result2Promise = superagent.get(
+      `https://dog.ceo/api/breed/${data}/images/random`
+    );
+    const result3Promise = superagent.get(
+      `https://dog.ceo/api/breed/${data}/images/random`
+    );
+    const all = await Promise.all([
+      result1Promise,
+      result2Promise,
+      result3Promise,
+    ]);
+    const images = all.map((el) => el.body.message);
 
-    console.log(res.body.message);
+    console.log(images);
+    // console.log(res.body.message);
 
-    await writeFilePromise('dog-img.txt', res.body.message);
-    console.log('Random dog image saved to file');
+    await writeFilePromise('dog-img.txt', images.join('\n'));
   } catch (err) {
     console.log(err);
     throw err;
