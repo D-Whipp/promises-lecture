@@ -12,9 +12,9 @@ const readFilePromise = (file) => {
 
 const writeFilePromise = (file, data) => {
   return new Promise((resolve, reject) => {
-    fs.watchFile(file, data, (err) => {
-      if (err) reject('I could not write the file');
-      resolve('Success');
+    fs.writeFile(file, data, (err) => {
+      if (err) reject('Could not write file ??');
+      resolve('success');
     });
   });
 };
